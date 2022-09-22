@@ -1,15 +1,14 @@
 def input_num():
-    num = int(input("Enter number: "))
-    print_nums(num)
+    try:
+        num = int(input("Enter number: "))
+        print_nums(num)
+    except ValueError as err:
+        print(err)
 
 
 def print_nums(number):
-    try:
-        for num in range(number):
-            if num + 1 < number:
-                print(num + 1)
-    except ValueError:
-        print(ValueError)
+    for num in range(number):
+        print(num + 1)
 
 
 if __name__ == '__main__':
