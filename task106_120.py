@@ -19,8 +19,8 @@ def addition():
         user_num = int(input(f"{rand_num1} + {rand_num2} = "))
         correct_num = rand_num1 + rand_num2
         comp_num(user_num, correct_num)
-    except ValueError:
-        print("Enter number.")
+    except ValueError as err:
+        print(err)
 
 
 def subtraction():
@@ -30,8 +30,8 @@ def subtraction():
         user_num = int(input(f"{rand_num1} - {rand_num2} = "))
         correct_num = rand_num1 - rand_num2
         comp_num(user_num, correct_num)
-    except ValueError:
-        print("Enter number.")
+    except ValueError as err:
+        print(err)
 
 
 def comp_num(user_num, correct_num):

@@ -2,13 +2,13 @@ import random
 
 
 def random_num():
-    # try:
+    try:
         min_num = int(input("Enter min number: "))
         max_num = int(input("Enter max number: "))
         rand_num = random.randint(min_num, max_num)
         guess(rand_num)
-    # except ValueError:
-    #     print("Error, try again.")
+    except ValueError as err:
+        print(err)
 
 
 def guess(rand_num):
@@ -27,8 +27,8 @@ def right_or_incorrect(rand_num, user_num):
             elif rand_num < user_num:
                 print("too big")
             guess(rand_num)
-    except ValueError:
-        print("Enter number.")
+    except ValueError as err:
+        print(err)
         guess(rand_num)
 
 
