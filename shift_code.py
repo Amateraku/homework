@@ -20,18 +20,17 @@ def make_a_code(primer, punctuations):
     striped_message = [x for x in message]
     finished_message = []
     for letter in striped_message:
-        for letter2 in range(len(primer) - 1):
+        if letter in punctuations:
+            finished_message.append(letter)
+            continue
+        if letter in primer:
             if letter == primer[len(primer) - 1]:
                 finished_message.append(primer[0])
-                break
-            elif letter == primer[letter2]:
-                finished_message.append(primer[letter2 + 1])
-                break
-            for punctuation in punctuations:
-                if letter == punctuation:
-                    finished_message.append(letter)
-                    break
-    print(finished_message)
+            else:
+                finished_message.append(primer[primer.index(letter) + 1])
+        else:
+            print(f"Symbol {letter} unsupported.")
+    print("".join(finished_message))
 
 
 def decode_a_message(primer, punctuations):
@@ -39,18 +38,17 @@ def decode_a_message(primer, punctuations):
     striped_message = [x for x in message]
     finished_message = []
     for letter in striped_message:
-        for letter2 in range(len(primer) - 1):
+        if letter in punctuations:
+            finished_message.append(letter)
+            continue
+        if letter in primer:
             if letter == primer[0]:
                 finished_message.append(primer[len(primer) - 1])
-                break
-            elif letter == primer[letter2]:
-                finished_message.append(primer[letter2 - 1])
-                break
-            for punctuation in punctuations:
-                if letter == punctuation:
-                    finished_message.append(letter)
-                    break
-    print(finished_message)
+            else:
+                finished_message.append(primer[primer.index(letter) - 1])
+        else:
+            print(f"Symbol {letter} unsupported.")
+    print("".join(finished_message))
 
 
 def quit_code():
