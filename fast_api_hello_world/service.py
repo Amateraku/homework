@@ -13,7 +13,7 @@ def weather(city):
     error = json.dumps({"error": "Error has corrupted"})
     try:
         response = requests.get(
-            f"https://api.weatherapi.com/v1/current.json?key=da00a2d85203422db90195136232501&q={city}&aqi=no")
+            f"https://api.weatherapi.com/v1/current.json?key={WEATHER_API_TOKEN}={city}&aqi=no")
         info = {"city": json.loads(response.text)["location"]["name"],
                 "temp": json.loads(response.text)["current"]["temp_c"],
                 "humidity": json.loads(response.text)["current"]["humidity"]}
